@@ -9,43 +9,56 @@
     <link rel="icon" href="favicon.png" type="image/png" />
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/vue/2.6.7/vue.js" charset="utf-8"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/vue-resource/1.5.1/vue-resource.js" charset="utf-8"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/vue-resource/1.5.1/vue-resource.min.js" charset="utf-8"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.12-pre/lodash.min.js" charset="utf-8"></script>
 
-    <link rel="stylesheet" href="https://unpkg.com/wingcss"/>
+    <link rel="stylesheet" href="https://raw.githack.com/andrearufo/nova.css/master/css/nova.min.css">
 
 </head>
 <body>
 
     <div id="app">
-        <div class="container">
 
-            <div class="row">
-                <div class="col">
-                    {{ this.title }}
-                    <a class="nav-item" href="//www.andrearufo.ti">andrearufo.it</a>
+        <header>
+            <div class="container">
+
+                <nav>
+                    <h5>{{ title }}</h5>
+
+                    <form>
+                        <input type="search" name="s" v-model="search" placeholder="Cerca...">
+                    </form>
+                </nav>
+
+            </div>
+        </header>
+
+        <section>
+            <div class="container">
+
+                <div v-if="search">
+                    <h3>Ricerca per <em>{{ search }}</em></h3>
+                    <p>Trovati {{ list.length }} risultati</p>
+                    <hr>
                 </div>
-                <div class="col">
-                    <input type="search" placeholder="Cerca..." v-model="search">
-                </div>
+
+                <article v-for="(note, index) in list" :key="index">
+                    <div v-html="note.html"></div>
+                    <div>
+                        <small>Ultima modifica {{ note.update }}, <a :href="note.link" download>Download the {{ note.file }} file</a></small>
+                    </div>
+
+                    <!-- <pre>{{ note }}</pre> -->
+                    <hr>
+                </article>
+
             </div>
+        </section>
 
-            <hr>
-
-            <div v-if="search">
-                <h3>Ricerca per <em>{{ search }}</em></h3>
-                <p>Trovati {{ list.length }} risultati</p>
-            </div>
-
-            <div v-for="(note, index) in list" :key="index">
-                <div v-html="note.html"></div>
-                <p>Ultima modifica {{ note.update }} <a :href="note.file" download>Download the .md file</a></p>
-                <hr>
-            </div>
-
-        </div>
     </div>
 
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/prism.min.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/components/prism-css.min.js" charset="utf-8"></script> -->
     <script>
 
     var currentLocation = window.location;
@@ -75,11 +88,11 @@
                 if( this.search != ''){
                     var self = this;
                     temporary = _.chain(self.notes)
-                        .orderBy('updatetime')
-                        .filter(function(item){
-                            return( item.content.toLowerCase().indexOf(self.search.toLowerCase()) > -1 );
-                        })
-                        .value();
+                    .orderBy('updatetime')
+                    .filter(function(item){
+                        return( item.content.toLowerCase().indexOf(self.search.toLowerCase()) > -1 );
+                    })
+                    .value();
                 }else{
                     temporary = this.notes;
                 }
@@ -114,7 +127,7 @@
         }
 
     })
-    </script>
+</script>
 
 </body>
 </html>

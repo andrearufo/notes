@@ -1,6 +1,0 @@
-@import url(https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css);
-@import url(https://raw.githubusercontent.com/rsms/raster/master/raster.grid.css);
-.container {
-  max-width: 960px;
-  margin: 0 auto;
-  width: 80%; }

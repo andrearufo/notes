@@ -1,14 +1,13 @@
 {
-    "scripts": {
-        "scss": "node-sass  -- watch scss -o css"
-    },
     "devDependencies": {
-        "autoprefixer": "^9.4.9",
-        "browser-sync": "^2.26.3",
+        "autoprefixer": "^9.4.10",
         "cssnano": "^4.1.10",
+        "fancy-log": "^1.3.3",
         "gulp": "^4.0.0",
+        "gulp-concat": "^2.6.1",
         "gulp-postcss": "^8.0.0",
         "gulp-sass": "^4.0.2",
+        "gulp-size": "^3.0.0",
         "gulp-sourcemaps": "^2.6.5",
         "node-sass": "^4.11.0"
     }
