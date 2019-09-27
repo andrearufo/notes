@@ -1,2 +1,3 @@
-# notes
-List your MD note on the web
+# Notes
+
+Il progetto Notes vuole essere un flat CMS per la scrittura in markdown.

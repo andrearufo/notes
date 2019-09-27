@@ -1,3 +1,0 @@
-# Hello
-
-I'm Andrea
