@@ -1,6 +1,6 @@
 // Variables
 $body:                white;
-$primary:             #1abc9c;
+$primary:             #016BA7;
 $dark:                darken($primary, 20%);
 $color:               #333333;
 $light:               lighten($color, 60%);
@@ -31,6 +31,7 @@ $padding:             $spacer/2 $spacer;
 }
 
 body{
+    font-size: $font-size;
 	min-height: 100%;
     background-color: $body;
     color: $color;
@@ -73,6 +74,7 @@ h1, h2, h3, h4, h5, h6{
 h1{
     font-size: $font-size * 2;
     font-weight: 600;
+    margin-top: 0;
 }
 
 h2{
@@ -147,9 +149,14 @@ button{
 
 
 // Blocks
-header, footer{
+header, footer, article{
     margin: $spacer 0;
     padding: $spacer 0;
+}
+
+header{
+    border-bottom: $border;
+    margin-top: 0;
 }
 
 footer{

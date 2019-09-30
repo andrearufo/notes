@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta charset="utf-8">
 
-    <title><?php echo config('title') ?></title>
+    <title><?php echo is_home() ? config('title') : config('title').' - '.SLUG ?></title>
 
-    <link rel="stylesheet" href="/theme/styles/style.css">
-    <script src="/theme/scripts/script.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="<?php echo THEME ?>/dist/styles/style.css">
+    <script src="<?php echo THEME ?>/dist/scripts/script.js" charset="utf-8"></script>
 
 </head>
 <body>

@@ -1,8 +1,8 @@
 <?php
 
 /**
- * Note class
- */
+* Note class
+*/
 class Note
 {
     function __construct(Array $input){
@@ -12,12 +12,26 @@ class Note
         $this->creation = time();
     }
 
-    public function content(){
-        return $this->content;
+    public function html(){
+        // $content = new Parsedown();
+        $content = new Parsedown();
+        return $content->text($this->content);
     }
 
-    public function excerpt(){
-        return substr($this->content, 0, 60);
+    public function title(){
+        return getTextBetweenTags($this->html(), 'h1');
+    }
+
+    public function content(){
+        $titletag_lenght = 4 + strlen($this->title()) + 9; // <h1>titletag</h1>
+        return substr($this->html(), $titletag_lenght);
+    }
+
+    public function excerpt($lenght = 200){
+        $title_lenght = strlen($this->title());
+        $raw_content = strip_tags($this->html());
+        $excerpt = str_replace("\n", ' ', substr($raw_content, $title_lenght, $lenght));
+        return $excerpt.'&hellip;';
     }
 
     public function slug(){

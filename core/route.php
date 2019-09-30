@@ -3,11 +3,12 @@
 
 $uri = $_SERVER['REQUEST_URI'];
 $slug = substr($uri, 1);
+
 define('SLUG', $slug);
+define('THEME', 'themes/'.config('theme'));
 
 if( !is_home() && !get_note(SLUG) ){
     http_response_code(404);
-    include('theme/404.php'); // provide your own HTML for the error page
-    echo '<pre>'.print_r($_SERVER, 1).'</pre>';
-    die();
+    include( THEME.'/404.php');
+    exit;
 }

@@ -10,7 +10,7 @@ require 'core/route.php';
 
 // Views
 if( is_home() ){
-    require 'theme/home.php';
+    require THEME.'/home.php';
 }else{
-    require 'theme/single.php';
+    require THEME.'/single.php';
 }

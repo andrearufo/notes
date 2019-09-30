@@ -5,11 +5,11 @@ var paths = {
     },
     styles: {
         src: 'dev/styles/**/*.scss',
-        dest: 'theme/styles'
+        dest: 'dist/styles'
     },
     scripts: {
         src: 'dev/scripts/**/*.js',
-        dest: 'theme/scripts'
+        dest: 'dist/scripts'
     }
 };
 
@@ -94,6 +94,6 @@ exports.watch = watch;
 exports.build = gulp.parallel(scripts, styles);
 
 function start(){
-    serve();
+    watch();
 }
 exports.default = start;
