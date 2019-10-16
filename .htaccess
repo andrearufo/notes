@@ -2,6 +2,8 @@ Options +FollowSymLinks +ExecCGI
 
 <IfModule mod_rewrite.c>
 
+# Redirect all at index
+
 RewriteEngine On
 RewriteCond %{REQUEST_URI}  !(\.png|\.jpg|\.gif|\.jpeg|\.bmp)$
 RewriteRule (.*) index.php [QSA]
