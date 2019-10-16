@@ -105,11 +105,11 @@ function slugify($text){
 }
 
 /**
-* https://stackoverflow.com/q/3299033
-* @param  [type] $string  [description]
-* @param  [type] $tagname [description]
-* @return [type]          [description]
-*/
+ * Reference from https://stackoverflow.com/q/3299033
+ * @param  String $string  The complete html content
+ * @param  String $tagname The tag searched
+ * @return String          The first content between tag
+ */
 function getTextBetweenTags($string, $tagname){
     $pattern = "/<$tagname ?.*>(.*)<\/$tagname>/";
     preg_match($pattern, $string, $matches);
