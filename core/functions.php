@@ -50,12 +50,10 @@ function get_notes() : Array{
 * @param  String $slug The slug of the note
 * @return Note The single note
 */
-function get_note($slug) : Note{
+function get_note($slug) : ?Note{
     $notes = get_notes();
     if( isset($notes[$slug]) ){
         return $notes[$slug];
-    }else {
-        return false;
     }
 }
 /**
@@ -111,7 +109,7 @@ function slugify($text) : String{
 * @param  [type] $tagname [description]
 * @return [type]          [description]
 */
-function getTextBetweenTags($string, $tagname) 
+function getTextBetweenTags($string, $tagname)
 {
     $pattern = "/<$tagname ?.*>(.*)<\/$tagname>/";
     preg_match($pattern, $string, $matches);
