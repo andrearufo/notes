@@ -5,7 +5,7 @@
 * @param  String $value The item in the config file
 * @return String The value setted in the config
 */
-function config(String $value) : String{
+function config(String $value){
     $config = json_decode( file_get_contents(__DIR__.'/../config.json'), 1);
 
     if( isset($config[$value] )){
@@ -19,7 +19,7 @@ function config(String $value) : String{
 * The list of the notes converted
 * @return Array List of the notes
 */
-function get_notes() : Array{
+function get_notes(){
     $directory = "./notes";
     $files = glob($directory . "/*.md");
 
@@ -50,7 +50,7 @@ function get_notes() : Array{
 * @param  String $slug The slug of the note
 * @return Note The single note
 */
-function get_note($slug) : ?Note{
+function get_note($slug){
     $notes = get_notes();
     if( isset($notes[$slug]) ){
         return $notes[$slug];
@@ -61,7 +61,7 @@ function get_note($slug) : ?Note{
 * Return the single note in the single page
 * @return Note The note requested
 */
-function get_single() : Note{
+function get_single(){
     return get_note(SLUG);
 }
 
@@ -69,7 +69,7 @@ function get_single() : Note{
 * Determine if is in home page
 * @return Bool The check
 */
-function is_home() : Bool{
+function is_home(){
     return $_SERVER['REQUEST_URI'] == '/';
 }
 
@@ -78,7 +78,7 @@ function is_home() : Bool{
 * @param  String $text Raw text to convert
 * @return String Converted text to slug
 */
-function slugify($text) : String{
+function slugify($text){
     // replace non letter or digits by -
     $text = preg_replace('~[^\pL\d]+~u', '-', $text);
 
@@ -110,8 +110,7 @@ function slugify($text) : String{
 * @param  [type] $tagname [description]
 * @return [type]          [description]
 */
-function getTextBetweenTags($string, $tagname)
-{
+function getTextBetweenTags($string, $tagname){
     $pattern = "/<$tagname ?.*>(.*)<\/$tagname>/";
     preg_match($pattern, $string, $matches);
     return $matches[1];
