@@ -55,6 +55,7 @@ function get_note($slug) : ?Note{
     if( isset($notes[$slug]) ){
         return $notes[$slug];
     }
+    return null;
 }
 /**
 * Return the single note in the single page
