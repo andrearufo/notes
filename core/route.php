@@ -1,6 +1,5 @@
 <?php
 
-
 $uri = $_SERVER['REQUEST_URI'];
 $slug = substr($uri, 1);
 

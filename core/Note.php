@@ -22,11 +22,6 @@ class Note
         return getTextBetweenTags($this->html(), 'h1');
     }
 
-    public function content(){
-        $titletag_lenght = 4 + strlen($this->title()) + 9; // <h1>titletag</h1>
-        return substr($this->html(), $titletag_lenght);
-    }
-
     public function excerpt($lenght = 200){
         $title_lenght = strlen($this->title());
         $raw_content = strip_tags($this->html());

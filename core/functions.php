@@ -105,7 +105,7 @@ function slugify($text){
 }
 
 /**
- * Reference from https://stackoverflow.com/q/3299033
+ * Thanks to https://stackoverflow.com/q/3299033
  * @param  String $string  The complete html content
  * @param  String $tagname The tag searched
  * @return String          The first content between tag
